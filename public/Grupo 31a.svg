@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg width="44" height="44" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <g data-name="Grupo 31" id="Grupo_31">
+   <path d="m22,0a22,22 0 1 0 22,22a22.02,22.02 0 0 0 -22,-22zm13.35,35.25a10.4,10.4 0 0 0 -9.35,-5.86l-8,0a10.4,10.4 0 0 0 -9.36,5.86a18.82,18.82 0 1 1 26.71,0z" data-name="Trazado 20" fill="#000000" id="Trazado_20"/>
+   <circle cx="5.96" cy="5.96" data-name="Elipse 2" fill="#000000" id="Elipse_2" r="8.46" transform="translate(16.041 11.812)"/>
+  </g>
+ </g>
+</svg>

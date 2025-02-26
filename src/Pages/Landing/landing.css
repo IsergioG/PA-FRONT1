@@ -1,0 +1,48 @@
+.landing-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/Grupo 11.png'); /* Fondo temático */
+  background-size: 110% 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.landing-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(14, 10, 39, 0.8);
+  z-index: 1;
+}
+
+.landing-title {
+  font-size: 2.5vw;
+  color: #f9f9f9;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
+.start-button {
+  padding: 1vw 2vw;
+  font-size: 1.2vw;
+  font-weight: bold;
+  border: none;
+  border-radius: 2vw;
+  background-color: #17e9fa;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s;
+  z-index: 2;
+}
+
+.start-button:hover {
+  background-color: #13a5af;
+}

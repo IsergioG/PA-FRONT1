@@ -1,0 +1,29 @@
+.custom-button {
+    padding: 1vw 2vw;
+    font-size: 1.2vw;
+    font-weight: bold;
+    border: none;
+    border-radius: 2vw;
+    background-color: #17e9fa;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s;
+  }
+  .custom-button {
+    padding: 1vw 2vw;
+    font-size: 1.2vw;
+    font-weight: bold;
+    border: none;
+    border-radius: 2vw;
+    background-color: #17e9fa;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s;
+  }
+  
+  .custom-button:hover {
+    background-color: #13a5af;
+  }
+  

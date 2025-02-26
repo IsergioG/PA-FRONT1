@@ -1,0 +1,103 @@
+.edit-register-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/Grupo 11.png'); /* Fondo temático */
+    background-size: 110% 110%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+  
+  .edit-register-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 10, 39, 0.8);
+    z-index: 1;
+  }
+  
+  .edit-register-container h1 {
+    font-size: 2vw;
+    margin-bottom: 2vh;
+    color: #f9f9f9;
+    z-index: 2;
+  }
+  
+  /* Diferenciación de estilos entre edición y registro */
+  .edit-mode h1 {
+    color: #ff8aea; /* Color especial para edición */
+  }
+  
+  .register-mode h1 {
+    color: #17e9fa; /* Color especial para registro */
+  }
+  
+  /* Estilos del formulario */
+  .edit-register-form {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    text-align: left;
+    font-size: 1.2vw;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 2vw;
+    border-radius: 1vw;
+    z-index: 2;
+  }
+  
+  /* Estilos de los labels y inputs */
+  .edit-register-form label {
+    font-size: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+  }
+  
+  .edit-register-form input,
+  .edit-register-form select {
+    width: 100%;
+    padding: 0.8vw;
+    font-size: 1vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #17e9fa;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+  
+  .edit-register-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .edit-register-form input:focus,
+  .edit-register-form select:focus {
+    outline: none;
+    border-color: #ff8aea;
+  }
+  
+  /* Botón de enviar */
+  .submit-button {
+    margin-top: 3vh;
+    padding: 1vw 2vw;
+    font-size: 1.2vw;
+    font-weight: bold;
+    border: none;
+    border-radius: 2vw;
+    background-color: #17e9fa;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s;
+    z-index: 2;
+    margin-inline: 3vw;
+  }
+  
+  .submit-button:hover {
+    background-color: #13a5af;
+  }
+  
