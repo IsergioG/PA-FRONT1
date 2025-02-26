@@ -2,9 +2,9 @@
 FROM node:20-alpine
 
 RUN mkdir -p /usr/src/app
-RUN mkdir -p /usr/src/app/quantum.frontend
+RUN mkdir -p /usr/src/app/corte.frontend
 # Crear el directorio de trabajo
-WORKDIR /usr/src/app/quantum.frontend
+WORKDIR /usr/src/app/corte.frontend
 
 # Copiar los archivos necesarios
 COPY . .

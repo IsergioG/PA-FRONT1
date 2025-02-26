@@ -6,6 +6,7 @@ import LandingPage from './Pages/Landing/landing.jsx'
 import Dashboard from './Pages/Dashboard/Dashboard.jsx';
 import Profile from './Pages/Profile/Profile.jsx';
 import EditRegisterMagicGirl from './Pages/Resgister-edit/register-edit.jsx'
+import History from './Pages/History/history.jsx';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <Route path='/profile/:id' element={<Profile />} />
     <Route path='/editar/:id' element={<EditRegisterMagicGirl />} />
     <Route path='/registro' element={<EditRegisterMagicGirl />} />
+    <Route path='/history' element={<History />} />
    </Routes>
   );
 }

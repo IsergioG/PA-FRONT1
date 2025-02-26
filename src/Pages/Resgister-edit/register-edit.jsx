@@ -10,40 +10,69 @@ function EditRegisterMagicGirl() {
     name: '',
     age: '',
     city: '',
-    status: 'Activa',
-    contractDate: ''
+    state: 'Activa',
+    contractDate: '',
+    UpdateActulization: new Date().toISOString().split('T')[0]
   });
 
   useEffect(() => {
     if (isEditing) {
-      // Simulación de carga de datos para edición - Reemplazar con fetch a la API
-      const fakeData = {
-        name: 'Homura Akemi',
-        age: '14',
-        city: 'Mitakihara',
-        status: 'Activa',
-        contractDate: '2023-03-10'
+      // Cargar datos de la chica mágica para edición
+      const fetchGirlData = async () => {
+        try {
+          const response = await fetch(`http://corte-backend:3000/app/${id}`);
+          if (!response.ok) {
+            throw new Error('ERROR');
+          }
+          const data = await response.json();
+          setFormData(data);
+        } catch (error) {
+          console.error('Error al obtener los datos ', error);
+        }
       };
-      setFormData(fakeData);
+      fetchGirlData();
     }
-  }, [isEditing]);
+  }, [isEditing, id]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(isEditing ? 'Editando chica mágica:' : 'Registrando nueva chica mágica:', formData);
-    navigate('/dashboard');
+ 
+      const handleDelete = async () => {
+   
+      try {
+        const response = await fetch(`http://corte-backend:3000/app/${id}`, {
+          method: 'DELETE'
+        });
+        if (!response.ok) {
+          throw new Error('Error al eliminar el registro');
+        }
+        navigate('/dashboard');
+      } catch (error) {
+        console.error('Error al eliminar:', error);
+      }
+    
   };
+ 
 
-  const handleDelete = () => {
-    if (window.confirm('¿Estás seguro de que deseas eliminar esta chica mágica?')) {
-      console.log('Eliminando chica mágica con ID:', id);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`http://localhost:3000/app${isEditing ? `/${id}` : ''}`, {
+        method: isEditing ? 'PATCH' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (!response.ok) {
+        throw new Error('Error');
+      }
       navigate('/dashboard');
+    } catch (error) {
+      console.error('Error al enviar la informacion', error);
     }
   };
+
   return (
     <div className={`edit-register-container ${isEditing ? 'edit-mode' : 'register-mode'}`}>
       <h1>{isEditing ? 'Editar Chica Mágica' : 'Registrar Nueva Chica Mágica'}</h1>
@@ -62,20 +91,27 @@ function EditRegisterMagicGirl() {
         </label>
         <label>
           Estado:
-          <select name="status" value={formData.status} onChange={handleChange}>
-            <option value="Activa">Activa</option>
-            <option value="Desaparecida">Desaparecida</option>
-            <option value="Rescatada">Rescatada</option>
+          <select  name="state" value={formData.state} onChange={handleChange} >
+            <option id="depl" value="activa">Activa</option>
+            <option id="depl" value="desaparecida">Desaparecida</option>
+            <option id="depl" value="rescatada">Rescatada</option>
           </select>
         </label>
         <label>
-        Fecha de Contrato:
+          Fecha de Contrato:
           <input type="date" name="contractDate" value={formData.contractDate} onChange={handleChange} required />
         </label>
         <div className="button-group">
-          <button type="submit" className="submit-button">{isEditing ? 'Guardar' : 'Registrar'}</button>
-          {isEditing && <button type="submit" className="submit-button" onClick={handleDelete}>Eliminar</button>}
-        </div>
+            <button type="submit" className="submit-button">
+              {isEditing ? 'Guardar Cambios' : 'Registrar'}
+            </button>
+
+            {isEditing && (
+              <button type="button" className="submit-button" onClick={handleDelete}>
+                Eliminar
+              </button>
+            )}
+          </div>
       </form>
     </div>
   );
