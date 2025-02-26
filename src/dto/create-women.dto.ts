@@ -1,9 +1,10 @@
 
 
 export class CreateWomenDto {
+    id:number
     name:string
-    age:string
-    city:number
-    state:Date
+    age:number
+    city:string
+    state:string
     contractDate:Date
 }

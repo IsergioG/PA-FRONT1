@@ -25,6 +25,10 @@ async create(createHistoryDto: CreateHistoryDto) {
       throw new ValidationException(error);
     }
   }
+  
+  findAll() {
+    return this.historyRepository.find();
+  }
 
   
 }

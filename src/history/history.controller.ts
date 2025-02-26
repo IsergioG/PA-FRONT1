@@ -11,4 +11,10 @@ export class HistoryController {
   create(@Body() createHistoryDto: CreateHistoryDto) {
     return this.historyService.create(createHistoryDto);
   }
+
+  @Get()
+  findAll() {
+    return this.historyService.findAll();
+  }
+
 }

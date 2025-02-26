@@ -1,8 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateWomenDto } from './dto/create-women.dto';
+import { UpdateWomenDto } from './dto/update-women.dto';
 
-@Controller()
+@Controller('app')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
@@ -17,18 +18,18 @@ export class AppController {
   }
 
   @Get(':id')
-  findOneById(@Param('id') id: string) {
+  findOneById(@Param('id') id: number) {
     return this.appService.findOneById(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
-    return this.appService.update(id, updatePostDto);
+  update(@Param('id') id: number, @Body() updateWomenDto: UpdateWomenDto) {
+    return this.appService.update(id, updateWomenDto);
   }
 
   @Delete(':id')
-  softDelete(@Param('id') id: string) {
-    return this.appService.softDelete(id);
+  delete(@Param('id') id: number) {
+    return this.appService.delete(id);
   }
 
 

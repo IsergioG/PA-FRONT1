@@ -2,7 +2,7 @@ export class CreateHistoryDto {
     name: string
     age: number
     city: string
-    state: Date
+    state: string
     contractDate: Date
     UpdateActulization: Date
 }
