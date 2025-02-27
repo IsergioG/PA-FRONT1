@@ -1,0 +1,67 @@
+version: '3'
+
+networks:
+  corte-network:
+    name:  corte-network
+    driver: bridge
+
+services:
+
+  # corte-frontend:
+  #   build: 
+  #     context: ./FRONT-MAGIC_WOMANS
+  #     dockerfile: Dockerfile
+  #   image: corte.frontend
+  #   container_name: CORTE.frontend
+  #   ports:
+  #     - "10000:10000"
+  #   restart: always
+  #   links:
+  #     - corte-backend
+  #   depends_on:
+  #     - corte-backend
+  #   networks:
+  #     - corte-network
+  #   volumes:
+  #     - /home/s3:/usr/src/app/quantum.frontend/public/assets
+
+  # corte-backend:
+  #   build: 
+  #     context: ./BACK-MAGIC_WOMANS/magic-womans
+  #     dockerfile: Dockerfile
+  #   image: corte-backend
+  #   container_name: corte-backend
+  #   ports:
+  #     - "3000:3000"
+  #   networks:
+  #     - corte-network
+      
+  corte-postgres:
+    image: postgres:latest
+    container_name: postgress-container
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: Pass123*
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data 
+    networks:
+      - corte-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    ports:
+      - "8080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: Pass123*
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - corte-network
+
+volumes:
+  pgdata:
+  pgadmin-data:
