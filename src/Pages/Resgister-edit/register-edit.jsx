@@ -20,7 +20,7 @@ function EditRegisterMagicGirl() {
       // Cargar datos de la chica mágica para edición
       const fetchGirlData = async () => {
         try {
-          const response = await fetch(`http://corte-backend:3000/app/${id}`);
+          const response = await fetch(`http://localhost:3000/app/${id}`);
           if (!response.ok) {
             throw new Error('ERROR');
           }
@@ -42,7 +42,7 @@ function EditRegisterMagicGirl() {
       const handleDelete = async () => {
    
       try {
-        const response = await fetch(`http://corte-backend:3000/app/${id}`, {
+        const response = await fetch(`http://localhost:3000/app/${id}`, {
           method: 'DELETE'
         });
         if (!response.ok) {

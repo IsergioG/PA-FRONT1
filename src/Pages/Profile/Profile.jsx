@@ -10,7 +10,7 @@ function Profile() {
   useEffect(() => {
     const fetchGirl = async () => {
       try {
-        const response = await fetch(`http://corte-backend:3000/app/${id}`);
+        const response = await fetch(`http://localhost:3000/app/${id}`);
         if (!response.ok) {
           throw new Error('Error al obtener los datos del perfil');
         }

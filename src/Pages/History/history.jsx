@@ -9,7 +9,7 @@ function History() {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await fetch('http://corte-backend:3000/history/');
+        const response = await fetch('http://localhost:3000/history/');
         if (!response.ok) {
           throw new Error('Error al obtener el historial de registros');
         }

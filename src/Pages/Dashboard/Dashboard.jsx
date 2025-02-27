@@ -11,7 +11,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchMagicGirls = async () => {
       try {
-        const response = await fetch('http://corte-backend:3000/app');
+        const response = await fetch('http://localhost:3000/app');
         if (!response.ok) {
           throw new Error('Error ');
         }
